@@ -8,26 +8,38 @@
 # [ [ x, x, x ], [ x, x, x ], [ x, x, x ]  ]
 
 # <O> <1>
-tictactoe = [ [  ], [  ], [  ] ]
+tictactoe = [ [nil, nil, nil], 
+              [nil, nil, nil], 
+              [nil, nil, nil] 
+            ]
 
-puts “Choose a letter: X/O”
+puts "Choose a letter: X/O"
 player_1 = gets.chomp
 
-if player_1 == “X”
-   player_2 = “O”
+if player_1 == "X"
+   player_2 = "O"
 else
-   player_2 = “X”
+   player_2 = "X"
 end
 
-puts “Player 1: #{player_1.inspect}”
-puts “Player 2: #{player_2.inspect}”
+puts "Player 1: #{player_1.inspect}"
+puts "Player 2: #{player_2.inspect}"
 
-puts “Choose a row: [0-2] ”
+puts "Choose a row: [0-2] "
 position_x = gets.chomp.to_i
-puts “Choose a column: [0-2] ”
+puts "Choose a column: [0-2] "
 position_y = gets.chomp.to_i
 
 play = tictactoe[position_x][position_y] = player_1
+
+if play
+  puts "It's your turn!"
+  puts "Choose a row: [0-2] "
+  position_x = gets.chomp.to_i
+  puts "Choose a column: [0-2] "
+  position_y = gets.chomp.to_i
+  play = tictactoe[position_x][position_y] = player_2
+end
 
 puts tictactoe.inspect
 
